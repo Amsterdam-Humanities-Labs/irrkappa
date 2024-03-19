@@ -1,0 +1,12 @@
+Package: irrkappa
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person("Lyke", "Esselink", email="first.last@example.com", role = c("aut", "cre"))
+Description: This package can be used to calculate the inter-rater reliability of ELAN annotations. The input is a csv file with annotations extracted from ELAN. The output consists of a confusion matrix of overlapping categories, Cohen's Kappa agreement scores, and a .csv file with overlapping annotations.
+License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
+    license
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
+Imports: knitr, dplyr, ggplot2, stringr, ggstance, tidyr, irr
