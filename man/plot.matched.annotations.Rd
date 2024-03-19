@@ -4,7 +4,7 @@
 \alias{plot.matched.annotations}
 \title{Plot Annotations}
 \usage{
-\method{plot}{matched.annotations}(df, question, threshold = FALSE)
+\method{plot}{matched.annotations}(df, question = "01-NeutNeg-01", threshold = FALSE)
 }
 \arguments{
 \item{df}{The pre-processed dataframe}

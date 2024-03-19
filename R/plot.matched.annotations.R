@@ -7,7 +7,7 @@
 #' @param threshold A boolean indicating whether matches below the overlap threshold should be dropped.
 #' @return p: A plot of the annotations by both annotators for the question. The plot includes a line between overlapping annotations and indicates the percentage overlap between them.
 #' @export
-plot.matched.annotations <- function(df, question, threshold = FALSE) {
+plot.matched.annotations <- function(df, question = "01-NeutNeg-01", threshold = FALSE) {
   df <- suppressWarnings(overlap(df))
   if(threshold) {
     df <- filter.drop.levels(df, df$Overlap >= Overlap.threshold)
