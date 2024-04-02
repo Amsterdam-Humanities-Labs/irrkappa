@@ -1,3 +1,5 @@
+.Rbuildignore
+.Rhistory
 .DS_Store
 irrkappa.Rproj
 .Rproj.user
