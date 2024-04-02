@@ -4,16 +4,16 @@
 \alias{init}
 \title{Initialize Dataframe for given tier}
 \usage{
-init(tier, replace_value = FALSE, Annotator.a = "M", Annotator.b = "T")
+init(tier, replace_value = FALSE, Annotator.a = "C1", Annotator.b = "C2")
 }
 \arguments{
 \item{tier}{A string of desired tier name. Possible tiers: body_position, eye_gaze, eye_shape (closed), eyebrows, head_move, head_x, head_y, head_z, lip_corners (mouth.action), lips (mouth.action), nose, shoulders}
 
 \item{replace_value}{A boolean, whether values need to be replaced}
 
-\item{Annotator.a}{Annotator label A}
+\item{Annotator.a}{Annotator label A - name of annotator}
 
-\item{Annotator.b}{Annotator label B}
+\item{Annotator.b}{Annotator label B - name of annotator}
 }
 \value{
 df: A pre-processed dataframe for the given tier

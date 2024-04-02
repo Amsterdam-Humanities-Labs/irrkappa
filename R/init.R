@@ -4,11 +4,11 @@
 #' 
 #' @param tier A string of desired tier name. Possible tiers: body_position, eye_gaze, eye_shape (closed), eyebrows, head_move, head_x, head_y, head_z, lip_corners (mouth.action), lips (mouth.action), nose, shoulders
 #' @param replace_value A boolean, whether values need to be replaced
-#' @param Annotator.a Annotator label A
-#' @param Annotator.b Annotator label B
+#' @param Annotator.a Annotator label A - name of annotator
+#' @param Annotator.b Annotator label B - name of annotator
 #' @return df: A pre-processed dataframe for the given tier
 #' @export
-init <- function(tier, replace_value = FALSE, Annotator.a = "M", Annotator.b = "T") {
+init <- function(tier, replace_value = FALSE, Annotator.a = "C1", Annotator.b = "C2") {
   file <- paste("annotations/", tier, ".csv",sep="")
   df <- read.csv(file, stringsAsFactors = FALSE)
   

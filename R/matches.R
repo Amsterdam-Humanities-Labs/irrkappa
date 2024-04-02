@@ -1,14 +1,17 @@
 #' Prepare Dataframe for Event-based IRR Calculations
 #'
-#' This function prepares the dataframe for event-based IRR calculations. In this case, we remove the "neutral" annotations. Any annotations that do not have at least the specified overlap threshold are labeled as "unmatched", and are commission/omission errors. 
-#' 
+#' This function prepares the dataframe for event-based IRR calculations. In this case, we remove the "neutral" annotations. Any annotations that do not have at least the specified overlap threshold are labeled as "unmatched", and are commission/omission errors.
+#'
 #' @param df The pre-processed dataframe.
+#' @param Overlap.threshold overlapping threshold value (default = 51)
+#' @param Annotator.a Annotator label A - name of annotator
+#' @param Annotator.b Annotator label B - name of annotator
 #' @return df.event.matches: The dataframe that will be used to create the confusion matrix.
 #' @export
-matches <- function(df) {
+matches <- function(df, Annotator.a = "C1", Annotator.b = "C2", Overlap.threshold = 51) {
   df.overlapping <- suppressWarnings(overlap(df))
   df.overlapping.filtered <- filter.drop.levels(df.overlapping, df.overlapping$Overlap >= Overlap.threshold)
-  
+
   df.matches <- df.overlapping.filtered %>%
     right_join(df, by = c("Question" = "Question", "ID.x" = "ID", "Annotator.x" = "Annotator", "NMM.x" = "NMM")) %>%
     arrange(ID.x) %>%
@@ -31,6 +34,6 @@ matches <- function(df) {
     mutate_if(is.character, as.factor) %>%
     select(Question, ID.x, ID.y, NMM.x, NMM.y, Annotator.x, Annotator.y) %>%
     distinct()
-  
+
   return(df.matches)
 }

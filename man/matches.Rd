@@ -4,10 +4,16 @@
 \alias{matches}
 \title{Prepare Dataframe for Event-based IRR Calculations}
 \usage{
-matches(df)
+matches(df, Annotator.a = "C1", Annotator.b = "C2", Overlap.threshold = 51)
 }
 \arguments{
 \item{df}{The pre-processed dataframe.}
+
+\item{Annotator.a}{Annotator label A - name of annotator}
+
+\item{Annotator.b}{Annotator label B - name of annotator}
+
+\item{Overlap.threshold}{overlapping threshold value (default = 51)}
 }
 \value{
 df.event.matches: The dataframe that will be used to create the confusion matrix.
