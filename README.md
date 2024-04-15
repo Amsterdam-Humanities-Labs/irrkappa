@@ -18,3 +18,5 @@ A folder should be installed in your directory; navigate to the folder, set it a
 ```
 devtools::load_all()
 ```
+*After this step, don't forget to navigate back to your original working directory, where you may have your data files stored, and set it as your working directory again.
+
