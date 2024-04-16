@@ -13,3 +13,10 @@ Then:
 ```
 devtools::install_github("Amsterdam-Humanities-Labs/irrkappa")
 ```
+
+A folder should be installed in your directory; navigate to the folder, set it as your working directory, then run this command to load all functions from the package:
+```
+devtools::load_all()
+```
+*After this step, don't forget to navigate back to your original working directory, where you may have your data files stored, and set it as your working directory again.
+
