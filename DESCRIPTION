@@ -10,3 +10,6 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
 Depends: knitr, dplyr, ggplot2, stringr, ggstance, tidyr, irr
+Suggests: 
+    rmarkdown
+VignetteBuilder: knitr
