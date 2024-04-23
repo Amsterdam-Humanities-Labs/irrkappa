@@ -17,3 +17,63 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(irrkappa)
 ```
+
+# Load data
+Possible tiers: body_position, eye_gaze, eye_shape (closed), eyebrows, head_move, head_x, head_y, head_z, lip_corners (mouth.action), lips (mouth.action), nose, shoulders
+
+Tiers with a value in parenthesis behind them have two ways of analyzing the data. The first way is without making any adjustments, and the second way is to replace the value in parenthesis by "neutral". The reason for this is that our annotators did not annotate these values the same way, so they should not be taken into account. To activate the second method, "replace_value" in the "init" function should be set to TRUE. NB: for the this method, a "neutral" value is not seen as an event, and is therefore disregarded.
+
+This chunk initializes the tier, replace_value, and the labels for the annotators. It then creates the pre-processed dataframe, and the matches dataframe, which will be used for the confusion matrix.
+
+```{r Load data}
+tier <- "tutorial"
+replace_value <- FALSE
+Annotator.a <- "M"
+Annotator.b <- "T"
+Overlap.threshold <- 51
+
+
+df <- init(tier, replace_value = replace_value)
+df.matches <- matches(df)
+```
+
+
+The chunk below plots the annotations for question q. This can be used to check the data.
+
+```{r}
+q <- "01-NeutNeg-01"
+plot.matched.annotations(df, q, threshold = FALSE)
+plot.matched.annotations(df, q, threshold = TRUE)
+```
+
+
+# Main
+
+The chunk below extracts the confusion matrices for the event-based approach. The confusion matrix with the "total" row and column is shown.
+
+```{r}
+confusion.matrices <- confusion.matrix(df.matches)
+confusion <- confusion.matrices$confusion
+
+confusion.matrices$confusion.total
+```
+
+The chunk below extracts the agreement rates from the confusion matrix, and plots the results.
+
+```{r}
+agreement <- calculate_agreement(df = confusion, 
+                                 nmm_values = confusion[confusion$NMM != "unmatched",]$NMM)
+agreement
+plot.agreement(agreement)
+```
+
+# Save
+
+```{r}
+# Save confusion matrices
+write.csv(confusion.matrices$confusion.total, paste("confusion_", tier, "_event_based.csv",sep=""), row.names=FALSE)
+
+# Save agreement scores (kappa)
+write.csv(agreement, paste("agreement_", tier, "_event_based.csv",sep=""), row.names=FALSE) 
+
+```

@@ -20,3 +20,5 @@ devtools::load_all()
 ```
 *After this step, don't forget to navigate back to your original working directory, where you may have your data files stored, and set it as your working directory again.
 
+# Preview tutorial
+A vignette is available in `vignette/tutorial.Rmd`. The analysis steps using the functions from the package can be found and run in the file.

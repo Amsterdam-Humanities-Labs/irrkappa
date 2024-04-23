@@ -2,7 +2,7 @@
 #'
 #' This function initializes the dataframe for a given tier. It pre-processes the data into a standardized form.
 #'
-#' @param tier A string of desired tier name. Possible tiers: body_position, eye_gaze, eye_shape (closed), eyebrows, head_move, head_x, head_y, head_z, lip_corners (mouth.action), lips (mouth.action), nose, shoulders
+#' @param tier A string of desired tier name. Make sure you have your annotations data in the working directory, with data for tier in csv file (included and spelled correctly in the name). Possible tiers: body_position, eye_gaze, eye_shape (closed), eyebrows, head_move, head_x, head_y, head_z, lip_corners (mouth.action), lips (mouth.action), nose, shoulders
 #' @param replace_value A boolean, whether values need to be replaced
 #' @return df: A pre-processed dataframe for the given tier
 #' @export
