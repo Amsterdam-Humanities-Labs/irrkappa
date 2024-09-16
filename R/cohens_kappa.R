@@ -15,8 +15,9 @@ cohens_kappa <- function(df, cat) {
     group_by(if_else(NMM == cat, "agree", "other")) %>% 
     summarize(agree = sum(value[category == cat]), 
               other = sum(value[category != cat]), 
-              .groups = "drop") %>% 
+              .groups = "drop") %>%
     rename(NMM = 1)
+
   matrx <- as.matrix(collapsed[, -1])
   
   p_o <- sum(diag(matrx)) / sum(matrx)
